@@ -3,7 +3,7 @@ Demonstrates that dependency injection with kotlin is not working as expected wh
 The `Service` class defines two constructor parameters, one of which should be autowired and one that has a default
 value.
 
-```
+```kotlin
 @Service
 class Service(
     private val applicationContext: ApplicationContext,
