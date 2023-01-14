@@ -3,6 +3,14 @@ Demonstrates that dependency injection with kotlin is not working as expected wh
 The `Service` class defines two constructor parameters, one of which should be autowired and one that has a default
 value.
 
+```
+@Service
+class Service(
+    private val applicationContext: ApplicationContext,
+    private val client: Client = Client()
+)
+```
+
 When running on JVM the code behaves as expected: only the constructor parameter without default value is autowired.
 When running the native image the application does not start and throws the following exception indicating that spring
 attempts to autowire all constructor parameters (even the one with default values):
